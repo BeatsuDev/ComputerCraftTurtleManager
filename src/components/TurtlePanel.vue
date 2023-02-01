@@ -1,18 +1,19 @@
 <script setup lang="ts">
+import FuelBar from "./FuelBar.vue";
 import type { FuelProps } from './FuelBar.vue';
 
-interface Props extends FuelProps {
+interface Props {
     turtleName: String,
+    fuelProps: FuelProps,
 }
 
-const {turtleName, ...fuelProps} = defineProps<Props>();
-console.log("THIS IS FUEL PROPS: ", fuelProps)
+const {turtleName, fuelProps} = defineProps<Props>();
 </script>
 
 <template>
     <div id="turtle-container">
         <h1>{{ turtleName }}</h1>
-        Fuel: <FuelBar></FuelBar>
+        Fuel: <FuelBar :currentFuelLevel="fuelProps.currentFuelLevel" :maxFuelLevel="fuelProps.maxFuelLevel"></FuelBar>
     </div>
 </template>
 

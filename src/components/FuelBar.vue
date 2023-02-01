@@ -5,6 +5,7 @@ export interface FuelProps {
 }
 
 const { currentFuelLevel, maxFuelLevel } = defineProps<FuelProps>();
+
 </script>
 
 <template>

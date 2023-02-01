@@ -16,7 +16,7 @@ const names = [
   <h1>Turtles!</h1>
   <br>
   <div id="turtle-panel">
-    <TurtlePanel :turtleName="name" :currentFuelLevel="5" :maxFuelLevel="20000" v-for="name in names"></TurtlePanel>
+    <TurtlePanel v-for="name in names" :turtleName="name" :fuelProps="{currentFuelLevel: 0, maxFuelLevel: 20000}" ></TurtlePanel>
   </div>
 </template>
 
