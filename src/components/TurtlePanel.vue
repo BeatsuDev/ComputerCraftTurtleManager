@@ -27,6 +27,7 @@ provide("maxFuelLevel", maxFuelLevel);
         <h1>{{ turtleName }}</h1>
         Fuel: {{ currentFuelLevel }} / {{ maxFuelLevel }}
         <FuelBar />
+        <TurtleInventory />
     </div>
 </template>
 
