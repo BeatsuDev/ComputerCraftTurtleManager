@@ -16,7 +16,7 @@ const names = [
   <h1>Turtles!</h1>
   <br>
   <div id="turtle-panel">
-    <TurtlePanel v-for="name in names" :turtleName="name" :fuelProps="{currentFuelLevel: 0, maxFuelLevel: 20000}" ></TurtlePanel>
+    <TurtlePanel v-for="name in names" :turtleName="name" :currentFuelLevel="Math.round(20000*Math.random())" :maxFuelLevel="20000" ></TurtlePanel>
   </div>
 </template>
 

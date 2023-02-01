@@ -1,19 +1,32 @@
 <script setup lang="ts">
+import type { Ref } from "vue";
 import FuelBar from "./FuelBar.vue";
-import type { FuelProps } from './FuelBar.vue';
+import { ref, provide } from "vue";
 
 interface Props {
     turtleName: String,
-    fuelProps: FuelProps,
+    currentFuelLevel: Number,
+    maxFuelLevel: Number,
 }
 
-const {turtleName, fuelProps} = defineProps<Props>();
+const props = defineProps<Props>();
+const { turtleName } = props;
+
+const currentFuelLevel: Ref<number> = ref(0);
+const maxFuelLevel: Ref<number> = ref(0);
+
+currentFuelLevel.value = props.currentFuelLevel as number;
+maxFuelLevel.value = props.maxFuelLevel as number;
+
+provide("currentFuelLevel", currentFuelLevel);
+provide("maxFuelLevel", maxFuelLevel);
 </script>
 
 <template>
     <div id="turtle-container">
         <h1>{{ turtleName }}</h1>
-        Fuel: <FuelBar :currentFuelLevel="fuelProps.currentFuelLevel" :maxFuelLevel="fuelProps.maxFuelLevel"></FuelBar>
+        Fuel: {{ currentFuelLevel }} / {{ maxFuelLevel }}
+        <FuelBar />
     </div>
 </template>
 
